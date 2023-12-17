@@ -83,6 +83,7 @@ def main() -> None:
 
     path = 'log_traceroute.txt'
     log = open(path, 'w')
+    temp = 0
 
     # Get the destination address from command-line argument
     dest_name = sys.argv[1]
@@ -97,6 +98,10 @@ def main() -> None:
 
     # Iterate over the traceroute results and print each hop information
     for i, (addr, elapsed_time) in enumerate(traceroute(dest_addr)):
+        total = 24
+        print('\r' + '[Progress]:[%s%s]%.2f%%;'%(
+        '█' * int(temp*20/total), ' ' * (20-int(temp*20/total)),
+        float(temp/total*100)), end='')
         if addr is not None:
             try:
                 # Get the hostname corresponding to the IP address
@@ -105,11 +110,11 @@ def main() -> None:
                 host = ""
             # Print the hop information
             print(
-                f"{i+1:<5d}{addr:<20s}{host:<50s}{elapsed_time:<10.3f} ms",file=log
-            )
+                f"{i+1:<5d}{addr:<20s}{host:<50s}{elapsed_time:<10.3f} ms",file=log)
         else:
             # Print "*" for hops with no response
             print(f"{i+1:<5d}{'*':<20s}{'*':<50s}{'*':<10s}",file=log)
+        temp += 1
 
 if __name__ == "__main__":
     main()
