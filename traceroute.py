@@ -81,7 +81,7 @@ def traceroute(
 
 def main() -> None:
 
-    path = 'log_traceroute.txt'
+    path = 'log_traceroute.log'
     log = open(path, 'w')
     temp = 0
 

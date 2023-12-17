@@ -19,7 +19,15 @@ def ip2carrier(ip):
         carrier = None
     return(carrier, country)
 
+def printLog():
+    #print file log
+    path = 'log_traceroute.log'
+    log = open(path, 'r')
+    print(log.read())
+    log.close()
+
 if __name__ == '__main__':
-    ip = '192.1.1.1'
-    carrier, country = ip2carrier(ip)
-    print(carrier, country)
+    #ip = '192.1.1.1'
+    #carrier, country = ip2carrier(ip)
+    #print(carrier, country)
+    printLog()
