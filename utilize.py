@@ -20,6 +20,6 @@ def ip2carrier(ip):
     return(carrier, country)
 
 if __name__ == '__main__':
-    ip = '140.122.65.193'
+    ip = '192.1.1.1'
     carrier, country = ip2carrier(ip)
     print(carrier, country)
