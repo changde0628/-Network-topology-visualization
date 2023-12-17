@@ -19,9 +19,8 @@ def ip2carrier(ip):
         carrier = None
     return(carrier, country)
 
-def printLog():
+def printLog(path = 'log_traceroute.log'):
     #print file log
-    path = 'log_traceroute.log'
     log = open(path, 'r')
     print(log.read())
     log.close()

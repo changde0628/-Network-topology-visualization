@@ -79,14 +79,12 @@ def traceroute(
                 break
 
 
-def main() -> None:
+def traceroute_main(dest_name,path = 'log_traceroute.log') -> None:
 
-    path = 'log_traceroute.log'
     log = open(path, 'w')
     temp = 0
 
     # Get the destination address from command-line argument
-    dest_name = sys.argv[1]
     dest_addr = socket.gethostbyname(dest_name)
 
     # Print the traceroute header
@@ -115,6 +113,7 @@ def main() -> None:
             # Print "*" for hops with no response
             print(f"{i+1:<5d}{'*':<20s}{'*':<50s}{'*':<10s}",file=log)
         temp += 1
+    print()
 
 if __name__ == "__main__":
-    main()
+    traceroute_main()
