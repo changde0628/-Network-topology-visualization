@@ -80,16 +80,20 @@ def traceroute(
 
 
 def main() -> None:
+
+    path = 'log_traceroute.txt'
+    log = open(path, 'w')
+
     # Get the destination address from command-line argument
     dest_name = sys.argv[1]
     dest_addr = socket.gethostbyname(dest_name)
 
     # Print the traceroute header
-    print(f"Traceroute to {dest_name} ({dest_addr})")
+    print(f"Traceroute to {dest_name} ({dest_addr})",file=log)
     print(
-        f"{'Hop':<5s}{'IP Address':<20s}{'Hostname':<50s}{'Time (ms)':<10s}"
+        f"{'Hop':<5s}{'IP Address':<20s}{'Hostname':<50s}{'Time (ms)':<10s}",file=log
     )
-    print("-" * 90)
+    print("-" * 90,file=log)
 
     # Iterate over the traceroute results and print each hop information
     for i, (addr, elapsed_time) in enumerate(traceroute(dest_addr)):
@@ -101,12 +105,11 @@ def main() -> None:
                 host = ""
             # Print the hop information
             print(
-                f"{i+1:<5d}{addr:<20s}{host:<50s}{elapsed_time:<10.3f} ms"
+                f"{i+1:<5d}{addr:<20s}{host:<50s}{elapsed_time:<10.3f} ms",file=log
             )
         else:
             # Print "*" for hops with no response
-            print(f"{i+1:<5d}{'*':<20s}{'*':<50s}{'*':<10s}")
-
+            print(f"{i+1:<5d}{'*':<20s}{'*':<50s}{'*':<10s}",file=log)
 
 if __name__ == "__main__":
     main()
