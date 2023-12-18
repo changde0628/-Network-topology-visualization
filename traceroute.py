@@ -108,7 +108,7 @@ def traceroute_main(dest_name,path = 'log_traceroute.log') -> None:
                 host = ""
             # Print the hop information
             print(
-                f"{i+1:<5d}{addr:<20s}{host:<50s}{elapsed_time:<10.3f} ms",file=log)
+                f"{i+1:<5d}{addr:<20s}{host:<100s}{elapsed_time:<10.3f} ms",file=log)
         else:
             # Print "*" for hops with no response
             print(f"{i+1:<5d}{'*':<20s}{'*':<50s}{'*':<10s}",file=log)

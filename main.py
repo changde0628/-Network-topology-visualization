@@ -18,6 +18,16 @@ parser.add_argument("-p", "--path", help = "Enter the storage path of the genera
 args = parser.parse_args()
 
 if __name__ == '__main__':
+    if not args.name:
+        args.name = 'log_traceroute'
+    if not args.path:
+        args.path = 'result'
+    traceroute_main(args.dest,'./'+args.path+'/'+args.name+'.log')
+    printLog('./'+args.path+'/'+args.name+'.log')
+    GenDigraph('./'+args.path+'/'+args.name+'.log')
+
+"""
+if __name__ == '__main__':
     try:
         if not args.name:
             args.name = 'log_traceroute'
@@ -28,3 +38,4 @@ if __name__ == '__main__':
         GenDigraph('./'+args.path+'/'+args.name+'.log')
     except:
         print("Please enter the correct arguments!")
+"""
