@@ -8,7 +8,7 @@ This is a final project for computer network@NTNU2023, The main purpose is to vi
 - Install all packet in requirements.txt
 
 ```python
-pip install -r requirements. txt
+pip install -r requirements.txt
 ```
 
 ## How to use
